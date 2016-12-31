@@ -1,0 +1,33 @@
+.margin-class{
+    margin-top: 100px;
+}
+
+.h1-margin-class{
+    margin-top: 100px;
+    font-family: 'Lobster Two', cursive;
+    font-size: 75px;
+    color: #eee;
+}
+
+.main-div{
+    margin-top: 100px;
+}
+
+.body-color{
+    background: #4b6cb7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #4b6cb7 , #182848); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #4b6cb7 , #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */        
+}
+
+#city-country{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 30px;
+}
+
+#weather{
+    font-size: 25px;
+}
+
+#conditions{
+    font-size: 20px;
+}
