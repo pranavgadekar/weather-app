@@ -1,7 +1,7 @@
 jQuery( function($){
     var key =  "&key=8083ae276c0349008d2192334163112";
     var getURL = "https://api.apixu.com/v1/current.json?";
-    $.get("http://ipinfo.io", function (response) {
+    $.get("https://ipinfo.io", function (response) {
         var city = response.city;
         var region = response.region;
         var country = response.country;
