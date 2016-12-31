@@ -1,25 +1,26 @@
-jQuery( function( $ ) {
-        var key = "&APPID=7ecff7894f846d451f8456148526af0a";
-        var getUrl = "http://api.openweathermap.org/data/2.5/weather?";
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(function(position){
-                var lat = position.coords.latitude;
-                var lon = position.coords.longitude;
-                $.ajax( {
-                  url: getUrl + 'lat=' + lat + '&lon=' + lon + key,
-                  success: function ( data ) {
-                    var weather = data;
-                    var temperature = weather.main.temp - 273.15;
-                    var farenheit = temperature * 9 / 5 + 32;
-                    farenheit = Math.round(farenheit);
-                    var city = weather.name;
-                    var country = weather.sys.country;
-                    var condition = weather.weather[0].main;
-                    $("#city-country").html(city + ',' + country);
-                    $("#weather").html(temperature + ' &#8451; / ' + farenheit + '&#8457;');
-                    $("#conditions").html(condition);
-                  }
-                } );        
-            });
-        }   
-} );
+jQuery( function($){
+    var key =  "&key=8083ae276c0349008d2192334163112";
+    var getURL = "https://api.apixu.com/v1/current.json?";
+    $.get("http://ipinfo.io", function (response) {
+        var city = response.city;
+        var region = response.region;
+        var country = response.country;
+        var loc = response.loc;
+        $.ajax({
+            url: getURL + 'q=' + city + key,
+            success: function (data) {
+                var weather = data;
+                var newCity = weather.location.name;
+                var newCountry = weather.location.country;
+                var condition = weather.current.condition.text;
+                var temp_c = weather.current.temp_c;
+                var temp_f = weather.current.temp_f;
+                var img = "https://" + weather.current.condition.icon;
+                $("#city-country").html(newCity + ',' + newCountry);
+                $("#weather").html(temp_c + ' &#8451; / ' + temp_f + '&#8457;');
+                $("#conditions").html(condition);
+                $("#weather-image").attr('src',img);
+            }
+        });
+    }, "jsonp");
+});
